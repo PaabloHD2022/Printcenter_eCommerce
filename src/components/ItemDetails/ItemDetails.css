@@ -1,0 +1,91 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@300&family=Montserrat:wght@300&family=Roboto+Condensed:wght@300;400&display=swap');
+
+.Card_Item_Selected{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    font-family: 'Roboto Condensed', sans-serif;
+    gap: 50px;
+    width: 90%;
+    margin: 40px;
+}
+
+.info_card2{
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+}
+
+.Img2 > img{
+    width: 450px;
+}
+
+.titulo2{
+    font-size: 30px;
+    text-align: center;
+    align-items: center;
+    color: #084C61;
+    width: 450px;
+    padding: 0px 0 10px 0;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 900;
+    text-transform: uppercase;
+}
+
+.desc2{
+    width: 450px;
+    font-size: 15px;
+    text-align: justify;
+    color:#5e5e5e;
+    line-height: 22px;
+}
+
+.cant2{
+    font-size: 25px;
+    text-align: center;
+    text-decoration: none;
+}
+
+.p_minima2{
+    font-size: 15px;
+    text-align: center;
+    color: #ff0000;
+    width: 450px;
+    padding: 5px 0 5px 0;
+    align-items: center;
+    text-decoration: none;
+}
+
+.precio2{
+    font-size: 16px;
+    color:#FFF;
+    font-weight: bolder;
+    width: 450px;
+    text-align: center;
+    font-family: 'Barlow', sans-serif;
+    margin-bottom: 20px;
+    vertical-align: center;
+    background: #084C61;
+}
+
+.stockcount{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 100%;
+}
+
+.contador_producto{
+    width: 100px;
+    display:flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.stock{
+    color:#084C61;
+    font-weight: bolder;
+    text-transform: uppercase;
+}
+
