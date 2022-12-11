@@ -1,0 +1,10 @@
+.logo-navbar__printcenter{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.logo-menu__printcenter{
+    width: 250px;
+    margin-left: 30px;
+}

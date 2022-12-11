@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { getFirestore, collection, getDocs, query, where } from 'firebase/firestore';
 import ItemList from '../ItemList/ItemList';
 import { useParams } from 'react-router-dom';
+import ProductSelection from '../ProductSelection/ProductSelection';
 
 
 const ItemListContainer = () => {
@@ -56,8 +57,13 @@ const ItemListContainer = () => {
     }, [categoryName]);
 
     return (
-        <div className="items_list">
-            <ItemList products={items} />
+        <div>
+            <div>
+                <ProductSelection />
+            </div>
+            <div className="items_list">
+                <ItemList products={items} />
+            </div>
         </div>
     );
 }

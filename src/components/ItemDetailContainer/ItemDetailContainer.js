@@ -15,9 +15,11 @@ export const ItemDetailContainer = () => {
             .then(res => setSelectedProduct({ id: res.id, ...res.selectedProduct() }))
     }, [id]);
 
-    return (
-        <ItemDetails selectedProduct={selectedProduct} />
-    );
+    return  (
+        <div className='selected_product'>
+            {selectedProduct && <ItemDetails selectedProduct={selectedProduct} />}
+        </div>
+    )
 }
 
 export default ItemDetailContainer;

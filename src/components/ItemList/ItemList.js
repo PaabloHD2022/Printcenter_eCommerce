@@ -1,12 +1,12 @@
 import './ItemList.css'
 import React from 'react';
 import Item from "../Item/Item";
-import ProductSelection from '../ProductSelection/ProductSelection';
 
 
-const ItemList = ({data = []}) => {
+
+const ItemList = ({products}) => {
     return (
-        data.map(film => <Item key={film.id} info={film} />)
+        products.map(film => <Item key={film.id} product={film} />)
     )
 }
 

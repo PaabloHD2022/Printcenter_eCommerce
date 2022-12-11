@@ -3,12 +3,11 @@
 
 .Card_Item_Selected{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
     font-family: 'Roboto Condensed', sans-serif;
-    gap: 50px;
-    width: 90%;
-    margin: 40px;
+    width: 100%;
+    margin: 30px auto;
 }
 
 .info_card2{

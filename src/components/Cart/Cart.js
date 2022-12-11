@@ -1,61 +1,84 @@
 import './Cart.css'
 import { addDoc, collection, getFirestore } from 'firebase/firestore';
-import React from "react";
+import { useEffect, useState } from "react";
 import { Link } from 'react-router-dom'
 import { useCartContext } from '../../context/CartProvider';
 import ItemCart from '../ItemCart/ItemCart';
+import moment from 'moment';
 import swal from 'sweetalert2'
 
 const Cart = () => {
     const { cart, totalPrice } = useCartContext();
-
-
-    const order = {
-        buyer: {
+    const [total, setTotal] = useState(0);
+    const [formValues, setFomrValues] = useState({
             name: '',
             email: '',
-            phone: '',
-            address: ''
+            phone: ''
+        });
+        /* items: cart.map(items => ({ id: items.id, name: items.nombre, price: items.precio, quantity: items.cantidad })),
+        total: totalPrice(), */
+    
+
+    const getTotalPrice = () => {
+        setTotal(
+          cart.reduce((acc, product) => acc + product.precio * product.cantidad, 0)
+        );
+    };
+
+    const createOrder = () => {
+        const db = getFirestore();
+        const query = collection(db, 'Order');
+        const newOrder = {
+            buyer: {
+            name: formValues.name,
+            phone: formValues.phone,
+            email: formValues.email,
         },
-        items: cart.map(product => ({ id: product.id, name: product.name, price: product.price, quantity: product.quantity })),
-        total: totalPrice(),
-    }
+            date: moment().format('DD/MM/YYYY'),
+            items: cart,
+            total: total,
+        };   
 
     const handleClick = () => {
         const db = getFirestore();
-        const ordersCollection = collection(db, 'orders');
-        addDoc(ordersCollection, order)
+        const query = collection(db, 'order');
+        addDoc(query, newOrder)
             .then(({ id }) => console.log(id))
         swal.fire({
             title: '¡Usted a emitido una orden de Compra!'
         });
+        
     }
 
     if (cart.length === 0) {
         return (
-            <>
-                <p className="m-5 noElements">No hay elementos en el carrito.</p>
-                <Link to='/' className="ml-5 bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded">Hacer compras</Link>
-            </>
+            <div>
+                <p>No hay elementos en el carrito.</p>
+                <Link to='/' >Hacer compras</Link>
+            </div>
         );
     }
 
-    return (
-        <>
-            <div className='cartItems'>
-            {
-                cart.map(product => <ItemCart key={product.id} product={product} />)
-            }
-            
-        </div>
-        <div className="buttonFinish flex flex-col items-center mt-10">
-                <p>
-                    TOTAL: ${totalPrice()}
-                </p>
-                <button onClick={handleClick} className="mt-2 mb-20 bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded">Emitir Compra</button>
-            </div>
-        </>
-    )
-}
+    useEffect(() =>{
+        getTotalPrice();
+    },[Cart])
 
+        return (
+            <>
+            <div>
+                <div className='cartItems'>
+                {cart.map(product => <ItemCart key={product.id} product={product} />)}            
+                </div>
+                <div>
+                <p>TOTAL: ${totalPrice()}</p>
+                <button onClick={handleClick}>Emitir Compra</button>            
+                </div>
+            </div>
+            <div>
+                <button onClick={createOrder}>Crear Orden</button>
+            </div>
+            </>
+        )
+    }
+}
 export default Cart;
