@@ -7,21 +7,21 @@ export const useCartContext = () => useContext(CartContext);
 const CartProvider = ({ children }) => {
     const [cart, setCart] = useState([]);
     
-    const addProduct = (item, quantity) => {
+    const addProduct = (item, cantidad) => {
         if (isInCart(item.id)) {
             setCart(cart.map(product => {
-                return product.id === item.id ? { ...product, quantity: product.quantity + quantity } : product
+                return product.id === item.id ? { ...product, quantity: product.cantidad + cantidad } : product
             }));
         } else {
-            setCart([...cart, { ...item, quantity }]);
+            setCart([...cart, { ...item, cantidad }]);
         }
     }
         
     const totalPrice = () =>  {
-        return cart.reduce((prev, act) => prev + act.quantity * act.price, 0);
+        return cart.reduce((prev, act) => prev + act.cantidad * act.precio, 0);
     }
 
-    const totalProducts = () => cart.reduce((acumulador, productoActual) => acumulador + productoActual.quantity, 0);
+    const totalProducts = () => cart.reduce((acumulador, productoActual) => acumulador + productoActual.cantidad, 0);
 
     const clearCart = () => setCart([]);
     

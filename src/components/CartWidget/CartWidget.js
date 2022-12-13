@@ -8,8 +8,8 @@ export const CartWidget = () => {
     const {totalProducts} = useCartContext();
     return (
         <div className='menu-navbar__logo'>
-            <Link to={"/cart"}><img className='menu-navbar__img' src={cartImg} alt='cart-widget'/></Link>
             <span> {totalProducts() || '' }</span>
+            <Link to={"/cart"}><img className='menu-navbar__img' src={cartImg} alt='cart-widget'/></Link>
         </div>
     );
 }

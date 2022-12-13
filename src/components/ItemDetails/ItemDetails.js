@@ -8,33 +8,33 @@ export const ItemDetails = ({selectedProduct}) => {
     const [goToCart, setGoToCart] = useState(false);
     const { addProduct } = useCartContext()
 
-    const onAdd = (quantity) => {
+    const onAdd = (cantidad) => {
         setGoToCart(true);
-        addProduct(selectedProduct, quantity);
+        addProduct(selectedProduct, cantidad);
         console.log(onAdd);
     }
 
     return (
     <div className='Card_Item_Selected'>
-        <img alt="Imagenes de productos" src={selectedProduct.img} />
+        <img className="img_Item_Selected" alt="Imagenes de productos" src={selectedProduct.img} />
         <div>    
-            <div>
-                <h2>{selectedProduct.nombre}</h2>
-                    <p>{selectedProduct.descripcion}</p>
-                    <p>Precio: ${selectedProduct.precio}</p>
+            <div className='card_Item_info'>
+                <h3>{selectedProduct.nombre}</h3>
+                    <p className='card_descripcion'>{selectedProduct.descripcion}</p>
+                    <p className='card_Item_Precio'>Precio: ${selectedProduct.precio}</p>
                 <div>
                     {
                         goToCart? 
                         <div>
                             <div>
-                                <Link to='/cart' >Ver mi carrito</Link>
+                                <Link to='/cart'>Ver mi carrito</Link>
                             </div>
                             <div>
-                                <Link to='/' >Seguir comprando</Link>
+                                <Link to='/'>Seguir comprando</Link>
                             </div>
                         </div>
 
-                        : <ItemCount initial={1} stock={selectedProduct.stock} onAdd={onAdd}/>
+                        : <ItemCount stock={selectedProduct.stock} onAdd={onAdd}/>
                     }
                 </div>
             </div>

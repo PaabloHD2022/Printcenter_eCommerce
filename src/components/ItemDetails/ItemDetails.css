@@ -3,88 +3,35 @@
 
 .Card_Item_Selected{
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: center;
     font-family: 'Roboto Condensed', sans-serif;
-    width: 100%;
-    margin: 30px auto;
+    width: 70%;
+    margin: 50px auto;
 }
 
-.info_card2{
+.img_Item_Selected{
+    display: flex;
+    flex-direction: row;
+    width: 300px;
+}
+
+.card_Item_info{
     display: flex;
     flex-direction: column;
-    width: 400px;
+    justify-content: space-evenly;
+    width: 600px;
+    padding: 20px;
 }
 
-.Img2 > img{
-    width: 450px;
-}
-
-.titulo2{
-    font-size: 30px;
-    text-align: center;
-    align-items: center;
-    color: #084C61;
-    width: 450px;
-    padding: 0px 0 10px 0;
-    font-family: 'Roboto', sans-serif;
-    font-weight: 900;
-    text-transform: uppercase;
-}
-
-.desc2{
-    width: 450px;
+.card_Descripcion{
     font-size: 15px;
     text-align: justify;
-    color:#5e5e5e;
-    line-height: 22px;
+
 }
 
-.cant2{
-    font-size: 25px;
-    text-align: center;
-    text-decoration: none;
+.card_Item_Precio{
+    font-size: 20px;
+    font-weight: bold;
+    text-align: right;
 }
-
-.p_minima2{
-    font-size: 15px;
-    text-align: center;
-    color: #ff0000;
-    width: 450px;
-    padding: 5px 0 5px 0;
-    align-items: center;
-    text-decoration: none;
-}
-
-.precio2{
-    font-size: 16px;
-    color:#FFF;
-    font-weight: bolder;
-    width: 450px;
-    text-align: center;
-    font-family: 'Barlow', sans-serif;
-    margin-bottom: 20px;
-    vertical-align: center;
-    background: #084C61;
-}
-
-.stockcount{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    width: 100%;
-}
-
-.contador_producto{
-    width: 100px;
-    display:flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-}
-
-.stock{
-    color:#084C61;
-    font-weight: bolder;
-    text-transform: uppercase;
-}
-

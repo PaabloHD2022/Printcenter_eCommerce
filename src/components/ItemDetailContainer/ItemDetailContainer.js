@@ -5,21 +5,29 @@ import { useParams } from 'react-router-dom';
 
 
 export const ItemDetailContainer = () => {
-    const [selectedProduct, setSelectedProduct] = useState({});
+    const [selectedProduct, setSelectedProduct] = useState();
     const { id } = useParams();
 
-    useEffect(() => {
-        const querydb = getFirestore();
-        const queryDoc = doc(querydb, 'selectedProduct', id);
-        getDoc(queryDoc)
-            .then(res => setSelectedProduct({ id: res.id, ...res.selectedProduct() }))
+    const getProduct = () =>{
+        const db = getFirestore();
+        const query = doc(db, 'items', id);
+        getDoc(query)
+
+        .then((response) => {
+            setSelectedProduct({ id: response.id, ...response.data() });
+        })
+        .catch((error) => console.log(error));
+    };
+
+    useEffect(() =>{
+        getProduct();
     }, [id]);
 
-    return  (
-        <div className='selected_product'>
-            {selectedProduct && <ItemDetails selectedProduct={selectedProduct} />}
+    return (
+        <div>
+        { selectedProduct && <ItemDetails selectedProduct={selectedProduct} />}
         </div>
-    )
-}
+    );
+};
 
 export default ItemDetailContainer;

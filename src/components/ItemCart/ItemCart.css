@@ -1,0 +1,5 @@
+.item_cart{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
