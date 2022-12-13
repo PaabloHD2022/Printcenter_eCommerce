@@ -7,7 +7,7 @@ import moment from 'moment';
 
 const Cart = () => {
     
-    const { cart } = useContext(useCartContext);
+    const { cart } = useCartContext()
     const [total, setTotal] = useState(0);
     const [formValues, setFormValues] = useState({
         name: '',
@@ -66,7 +66,7 @@ const Cart = () => {
             [event.target.name]: event.target.value,
             });
         };
-
+        
         return (
             <div>
                 {cart.map((product) => (
@@ -83,13 +83,13 @@ const Cart = () => {
                     <button onClick={createOrder}>Crear orden</button>
                     <div>
                         <h2>Formulario</h2>
-                        <input name="name" type="text" placeholder="Nombre" value={formValues.name} onChange={handleInputChange} />
-                        <input name="phone" type="text" placeholder="Telefono" value={formValues.phone} onChange={handleInputChange} />
-                        <input name="email" type="text" placeholder="Email" value={formValues.email} onChange={handleInputChange} />
+                        <input name="name" type="text" placeholder="Nombre"  onChange={handleInputChange} />
+                        <input name="phone" type="text" placeholder="Telefono"  onChange={handleInputChange} />
+                        <input name="email" type="text" placeholder="Email"  onChange={handleInputChange} />
                     </div>
                 </div>
             </div>
         );
     }
 
-export default Cart;
+export default Cart;
