@@ -1,4 +1,5 @@
 import React from 'react'
+import './Cart.css';
 import { useContext, useState, useEffect, } from 'react';
 import { useCartContext } from '../../context/CartProvider';
 import { collection, addDoc, getFirestore, doc, updateDoc } from 'firebase/firestore';
@@ -68,25 +69,29 @@ const Cart = () => {
         };
         
         return (
-            <div>
+            <div cart_Content>
                 {cart.map((product) => (
-                <div key={product.id}>
-                    <img alt={product.nombre} src={`/Items/${product.img}`}/>
-                    <p>{product.nombre}</p>
-                    <p>{product.precio}</p>
-                    <p>{product.descripcion}</p>
-                    <p>{product.cantidad}</p>
+                <div className='cart'>
+                    <div className='cart_Img'>
+                        <img alt={product.nombre} src={product.img}/>
+                    </div>
+                    <div className='cart_Item' key={product.id}>
+                        <h3>{product.nombre}</h3>
+                        <p>Importe unitario ${product.precio}</p>
+                        <p className='cart_Descripcion'>Descripción: {product.descripcion}</p>
+                        <p className='cart_Cantidad'>Cantidad: {product.cantidad}</p>
+                    </div>
                 </div>
                 ))}
-                <div>
-                    <h2>Total: {total} </h2>
-                    <button onClick={createOrder}>Crear orden</button>
-                    <div>
-                        <h2>Formulario</h2>
+                <div className='create_Order'>
+                    <h1>Total: ${total} </h1>
+                    <div className='cart_Form'>
+                        <h2>Por favor ingrese sus datos personales para generar su orden</h2>
                         <input name="name" type="text" placeholder="Nombre"  onChange={handleInputChange} />
                         <input name="phone" type="text" placeholder="Telefono"  onChange={handleInputChange} />
                         <input name="email" type="text" placeholder="Email"  onChange={handleInputChange} />
                     </div>
+                    <button className='order_Button' onClick={createOrder}>Crear orden</button>
                 </div>
             </div>
         );
