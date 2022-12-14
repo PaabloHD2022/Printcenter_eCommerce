@@ -1,0 +1,10 @@
+.item_count{
+    display: flex;
+    flex-direction: row;
+    padding: 20px;
+    height: 70px;
+}
+
+.agregar_carrito{
+    margin-left: 20px;
+}

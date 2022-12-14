@@ -49,8 +49,10 @@
     width: 150px;
     height: 40px;
     margin: 0 auto 30px;
-    border-radius: 30px;
+    border-radius: 15px;
     font-weight: bold;
+    color: rgb(0, 0, 0);
+    background: rgb(0, 255, 85);
 }
 
 .create_Order h2{

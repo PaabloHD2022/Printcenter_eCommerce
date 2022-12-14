@@ -1,10 +1,10 @@
 import React from 'react'
 import './Cart.css';
-import { useContext, useState, useEffect, } from 'react';
+import { useState, useEffect, } from 'react';
 import { useCartContext } from '../../context/CartProvider';
 import { collection, addDoc, getFirestore, doc, updateDoc } from 'firebase/firestore';
 import moment from 'moment';
-
+import ItemCart from '../ItemCart/ItemCart';
 
 const Cart = () => {
     
@@ -69,20 +69,12 @@ const Cart = () => {
         };
         
         return (
-            <div cart_Content>
-                {cart.map((product) => (
-                <div className='cart'>
-                    <div className='cart_Img'>
-                        <img alt={product.nombre} src={product.img}/>
-                    </div>
-                    <div className='cart_Item' key={product.id}>
-                        <h3>{product.nombre}</h3>
-                        <p>Importe unitario ${product.precio}</p>
-                        <p className='cart_Descripcion'>Descripción: {product.descripcion}</p>
-                        <p className='cart_Cantidad'>Cantidad: {product.cantidad}</p>
-                    </div>
+            <>
+                <div>
+                {
+                    cart.map(product => <ItemCart key={product.id} product = {product} />)
+                }
                 </div>
-                ))}
                 <div className='create_Order'>
                     <h1>Total: ${total} </h1>
                     <div className='cart_Form'>
@@ -92,8 +84,8 @@ const Cart = () => {
                         <input name="email" type="text" placeholder="Email"  onChange={handleInputChange} />
                     </div>
                     <button className='order_Button' onClick={createOrder}>Crear orden</button>
-                </div>
-            </div>
+                </div>          
+            </>
         );
     }
 

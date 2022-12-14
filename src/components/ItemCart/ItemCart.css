@@ -1,5 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@300&family=Montserrat:wght@300&family=Roboto+Condensed:wght@300;400&display=swap');
+
 .item_cart{
     display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 90%;
+    margin: 30px auto;
+}
+
+.item_cart img{
+    width: 360px;
+    height: 360px;
+    padding: 20px;
+}
+
+.card_body{
+    display: flex;
     flex-direction: column;
-    justify-content: center;
+    padding: 20px;
+}
+
+.card_title{
+    font-size: 24px;
+    color: #003881;
+    font-family: 'Roboto', sans-serif;
+}
+
+.descripcion{
+    width: 800px;
+    font-size: 13px;
+    text-align: justify;
+    font-weight: 500;
+    color:rgb(138, 138, 138)
+}
+
+.cantidad{
+    color:rgb(184, 22, 22);
+    font-weight: bold;
+}
+
+.sub_total{
+    flex-grow: 1;
+    font-weight: bold;
+}
+
+.button_delete{
+    border-radius: 12px;
+    width: 100px;
+    background: rgb(255, 0, 0);
+    color: #ffff;
+    font-weight: bold;
+    padding: 5px;
 }
