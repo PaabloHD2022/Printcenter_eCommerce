@@ -10,7 +10,7 @@ import ProductSelection from '../ProductSelection/ProductSelection';
 const ItemListContainer = () => {
     const [items, setItems] = useState ([]);
     const { categoryName } = useParams(); //Trae el filtrado de los productos por categoria...
-    
+        
     const getProducts = () => {
     const db = getFirestore(); //Inicializamos la base de datos...
     const querySnapshot = collection(db, "items") // Creamos un query y lo configuramos con la funcion collection que recibe dos parametros la base de datos y el nombre de la coleecion que queremos traer en este caso "items"...
@@ -57,8 +57,8 @@ const ItemListContainer = () => {
     }, [categoryName]);
 
     return (
-        <div>
-            <div>
+        <div className='items_tienda'>
+            <div className='selector'>
                 <ProductSelection />
             </div>
             <div className="items_list">

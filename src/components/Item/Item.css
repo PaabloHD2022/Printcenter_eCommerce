@@ -2,13 +2,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Barlow:wght@300&family=Montserrat:wght@300&family=Roboto+Condensed:wght@300;400&display=swap');
 
 .card_item{
-    width: 330px;
-    height: 500px;
+    width: 290px;
+    height: 460px;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    border: 2px solid rgb(185, 185, 185);
-    border-radius: 20px;
+    border: 1px solid rgb(185, 185, 185);
+    border-radius: 5px;
     font-family: 'Roboto Condensed', sans-serif;
     text-decoration: none;
     margin: 0 auto;
@@ -20,10 +20,10 @@
 }
 
 .img_producto img{
-    width: 310px;
+    width: 250px;
     margin-bottom: 15px;
-    border-bottom-left-radius: 20px;
-    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
 }
 
 .info_producto{
@@ -36,10 +36,10 @@
 }
 
 .info_producto h2{
-    font-size: 22px;
-    width: 310px;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
+    font-size: 16px;
+    width: 250px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
     font-weight: bold;
     text-align: center;
     color: rgb(255, 255, 255);
@@ -54,7 +54,7 @@
     font-size: 16px;
     text-align: center;
     color: #084C61;
-    width: 310px;
+    width: 250px;
     align-items: center;
 }
 
@@ -63,7 +63,7 @@
     color:rgb(255, 255, 255);
     background: #DB3A34;
     padding: 5px;
-    border-radius: 50px;
+    border-radius: 10px;
     width: 150px;
     margin: 0 auto;
     text-align: center;

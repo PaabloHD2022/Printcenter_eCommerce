@@ -1,10 +1,14 @@
 .menu-navbar__img{
     width: 40px;
-    margin-right: 30px;
+    margin-right: 20px;
 }
 
 span{
-    padding: 3px 15px 3px 15px;
+    padding: 1px 5px 1px 5px;
     background: #fff;
+    color: rgb(184, 22, 22);
     border-radius: 100px;
+    font-weight: bold;
+    font-size: 14px;
+    position:sticky;
 }

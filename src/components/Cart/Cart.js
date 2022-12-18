@@ -6,9 +6,10 @@ import { collection, addDoc, getFirestore, doc, updateDoc } from 'firebase/fires
 import moment from 'moment';
 import ItemCart from '../ItemCart/ItemCart';
 
+
 const Cart = () => {
     
-    const { cart } = useCartContext()
+    const { cart, clearCart } = useCartContext();
     const [total, setTotal] = useState(0);
     const [formValues, setFormValues] = useState({
         name: '',
@@ -40,7 +41,7 @@ const Cart = () => {
         addDoc(query, newOrder)
             .then((response) => {
             alert(`Orden creada con el id ${response.id}`);
-            return response;
+            return response;                 
         })
 
             .then((res) =>{
@@ -67,7 +68,7 @@ const Cart = () => {
             [event.target.name]: event.target.value,
             });
         };
-        
+
         return (
             <>
                 <div>
@@ -79,14 +80,14 @@ const Cart = () => {
                     <h1>Total: ${total} </h1>
                     <div className='cart_Form'>
                         <h2>Por favor ingrese sus datos personales para generar su orden</h2>
-                        <input name="name" type="text" placeholder="Nombre"  onChange={handleInputChange} />
-                        <input name="phone" type="text" placeholder="Telefono"  onChange={handleInputChange} />
-                        <input name="email" type="text" placeholder="Email"  onChange={handleInputChange} />
+                        <input name="name" type="text" placeholder="Nombre Completo"  onChange={handleInputChange} required />
+                        <input name="phone" type="text" placeholder="Telefono"  onChange={handleInputChange} required />
+                        <input name="email" type="text" placeholder="Email"  onChange={handleInputChange} required />
                     </div>
                     <button className='order_Button' onClick={createOrder}>Crear orden</button>
-                </div>          
+                </div> 
             </>
-        );
-    }
+        )
+    };
 
-export default Cart;
+export default Cart; 

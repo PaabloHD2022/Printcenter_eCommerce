@@ -4,9 +4,9 @@ import { NavLink } from "react-router-dom";
 
 const ProductSelection = () => {
     return (
-        <div className="navProducts">
-            <h3 className="title_productos">Algunos de nuestros productos</h3>
-            <h2 className="title_productos2">"Para otro tipo de proyectos póngase en contacto con nosotros"</h2>
+        <div className="nav_Products">
+            <h3 className="title_products">Algunos de nuestros productos</h3>
+            <h2 className="title_products2">"Para otro tipo de proyectos póngase en contacto con nosotros"</h2>
             <div className="items_List">
                 <ul className="lista_categorias">
                     <li className="categorias">

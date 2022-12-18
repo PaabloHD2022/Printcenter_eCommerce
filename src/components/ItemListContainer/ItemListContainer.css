@@ -1,7 +1,22 @@
+.items_tienda{
+    width: 100%;
+    max-width: 1200px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-content: space-around;
+    column-gap: 50px;
+    row-gap: 50px;
+    margin: 30px auto;
+}
+
+.selector{
+    width: 300px;
+    margin: 0 auto;
+}
+
 .items_list{
+    width: 900px;
+    min-width: 900px;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
-    margin: 0 auto;
-    
 }
