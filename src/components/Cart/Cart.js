@@ -5,6 +5,7 @@ import { useCartContext } from '../../context/CartProvider';
 import { collection, addDoc, getFirestore, doc, updateDoc } from 'firebase/firestore';
 import moment from 'moment';
 import ItemCart from '../ItemCart/ItemCart';
+import { Navigate } from 'react-router-dom';
 
 
 const Cart = () => {
@@ -51,6 +52,11 @@ const Cart = () => {
                     stock: product.stock - product.cantidad
                     });
                 });
+
+                if (res){
+                    clearCart();
+                    return Navigate ("/");                   
+                }
             })
             .catch((error) => console.log(error));
         };
@@ -79,7 +85,7 @@ const Cart = () => {
                 <div className='create_Order'>
                     <h1>Total: ${total} </h1>
                     <div className='cart_Form'>
-                        <h2>Por favor ingrese sus datos personales para generar su orden</h2>
+                        <h2>Ingrese sus datos personales para generar su orden</h2>
                         <input name="name" type="text" placeholder="Nombre Completo"  onChange={handleInputChange} required />
                         <input name="phone" type="text" placeholder="Telefono"  onChange={handleInputChange} required />
                         <input name="email" type="text" placeholder="Email"  onChange={handleInputChange} required />
