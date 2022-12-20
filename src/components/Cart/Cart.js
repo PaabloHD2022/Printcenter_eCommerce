@@ -5,11 +5,11 @@ import { useCartContext } from '../../context/CartProvider';
 import { collection, addDoc, getFirestore, doc, updateDoc } from 'firebase/firestore';
 import moment from 'moment';
 import ItemCart from '../ItemCart/ItemCart';
-import { Navigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 
 const Cart = () => {
-    
+    const Navigate = useNavigate();
     const { cart, clearCart } = useCartContext();
     const [total, setTotal] = useState(0);
     const [formValues, setFormValues] = useState({
